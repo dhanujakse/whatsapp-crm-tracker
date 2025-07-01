@@ -64,8 +64,8 @@ Steps:
     * While generating token:
     * Select your app.
     * Choose required permissions:
-    --> whatsapp_business_messaging
-    --> whatsapp_business_management
+    --> whatsapp_business_messaging,
+    --> whatsapp_business_management,
     --> business_management (optional, but recommended).
 
 5. Generate the token
@@ -76,7 +76,9 @@ Important: Copy it and store it safely. You won't see it again.
 
 Whatever token you generated it may b either temporary or permanent,add it in a file named '.env' like this:
 ACCESS_TOKEN=your_temporary_or_permanent_token_here
+
 PHONE_NUMBER_ID=your_whatsapp_phone_number_id
+
 VERIFY_TOKEN=your_verify_token_for_webhook(for this refer step 6 and update)
 
 **Step 3:**
