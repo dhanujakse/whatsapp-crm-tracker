@@ -71,10 +71,10 @@ Steps:
 5. Generate the token
      * After selecting permissions, click Generate Token.
      * Copy the token shown.
-     * 
+       
 Important: Copy it and store it safely. You won't see it again.
 
-Whatever token you generated,for that add it in a file named '.env' like this:
+Whatever token you generated it may b either temporary or permanent,add it in a file named '.env' like this:
 ACCESS_TOKEN=your_temporary_or_permanent_token_here
 PHONE_NUMBER_ID=your_whatsapp_phone_number_id
 VERIFY_TOKEN=your_verify_token_for_webhook(for this refer step 6 and update)
