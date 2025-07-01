@@ -64,9 +64,9 @@ Steps:
     * While generating token:
     * Select your app.
     * Choose required permissions:
-    --> whatsapp_business_messaging,
-    --> whatsapp_business_management,
-    --> business_management (optional, but recommended).
+       * whatsapp_business_messaging,
+       * whatsapp_business_management,
+       * business_management(optional, but recommended).
 
 5. Generate the token
      * After selecting permissions, click Generate Token.
@@ -75,6 +75,7 @@ Steps:
 Important: Copy it and store it safely. You won't see it again.
 
 Whatever token you generated it may b either temporary or permanent,add it in a file named '.env' like this:
+
 ACCESS_TOKEN=your_temporary_or_permanent_token_here
 
 PHONE_NUMBER_ID=your_whatsapp_phone_number_id
@@ -93,7 +94,7 @@ To run the app,
  
 **Step 5:**
 To check and Upload CSV/Excel File:
-   * After running the command in step 4,u will see something like this http://localhost:3000 
+   * After running the command in step 4,u will see something like this "http://localhost:3000" 
    * Upload a CSV or Excel file containing phone numbers (one per row).(using curl/postman)
    * The backend reads and extracts numbers, then sends WhatsApp messages to each.
 
@@ -105,35 +106,36 @@ Step-by-step:
 
 1️. Install ngrok
    * If not already installed:
-      npm install -g ngrok
+      "npm install -g ngrok"
    * Or download from [https://ngrok.com/download](https://ngrok.com/download).
 2. Start your Express server locally
    * For example:
-     node index.js
+     "node index.js"
 when we run the above command in our terminal,it show something like this,
 "http://localhost:3000"
 3. Start ngrok
     * Open another terminal and run this too:
-       ngrok http 3000
+       "ngrok http 3000"
        Here, `3000` is the port your Express server runs on.
 
 4. Copy your ngrok URL
     * After running the above command, ngrok will show an output like this:
-        Forwarding    https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app -> http://localhost:3000
+        Forwarding https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app -> http://localhost:3000
+      
         So,public ngrok URL is in the above example:
-        https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app
+        "https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app"
    
 5. Add webhook path
-     * In your app, your webhook endpoint is for example `/webhook`.
+     * In your app, your webhook endpoint is for example '/webhook'.
      * So, your full webhook URL is:
-        https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app/webhook - Paste this url in place of callback url
+        "https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app/webhook" - Paste this url in place of callback url
 6. Update in Meta developer console
-     * Go to Meta Developers → WhatsApp → Configuration → Webhooks**.
+     * Go to Meta Developers → WhatsApp → Configuration → Webhooks.
      * Paste the full ngrok URL with '/webhook' as your webhook URL.
      * Add your verify token (the one you put in '.env').
 
 7. Save and verify
-     * Meta will send a verification request to your URL (like `GET /webhook`).
+     * Meta will send a verification request to your URL (like GET /webhook').
    If you paste the code correctly, it will reply with **"Webhook verified successfully!"** in your terminal.
 
 Important points to note:
@@ -144,18 +146,19 @@ Important points to note:
 
 **Step 7:**
 Fetch status data:
-    * Our code automatically logs `status`, `recipient_id`, and `timestamp` from webhook events.
+    * Our code automatically logs 'status', 'recipient_id', and 'timestamp' from webhook events.
     * Example extracted fields:
-    --> 'status': delivered, sent, failed, etc.
-    --> 'recipient_id': receiver's WhatsApp ID
-    --> 'timestamp': time of update
+       * 'status': delivered, sent, failed, etc.
+       * 'recipient_id': receiver's WhatsApp ID
+       * 'timestamp': time of update
     
-Testing with Postman
+Testing with Postman:
 
    * **Webhook testing**: Send a mock JSON POST request to your '/webhook' endpoint and observe logs or DB inserts.
    * **Upload testing**: Send a `multipart/form-data` POST request to '/messages/upload' with your CSV/Excel file.
 
----> Error Handling
+Error Handling:
+
     * Implemented retries while sending messages (3 attempts).
     * Logs errors clearly if any message fails.
     * Handles unsupported file types (only CSV & XLSX allowed).
