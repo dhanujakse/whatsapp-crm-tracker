@@ -64,8 +64,8 @@ Steps:
     * While generating token:
     * Select your app.
     * Choose required permissions:
-       * whatsapp_business_messaging,
-       * whatsapp_business_management,
+       * whatsapp_business_messaging
+       * whatsapp_business_management
        * business_management(optional, but recommended).
 
 5. Generate the token
@@ -109,8 +109,7 @@ Step-by-step:
       "npm install -g ngrok"
    * Or download from [https://ngrok.com/download](https://ngrok.com/download).
 2. Start your Express server locally
-   * For example:
-     "node index.js"
+     * "node index.js"
 when we run the above command in our terminal,it show something like this,
 "http://localhost:3000"
 3. Start ngrok
@@ -135,22 +134,25 @@ when we run the above command in our terminal,it show something like this,
      * Add your verify token (the one you put in '.env').
 
 7. Save and verify
-     * Meta will send a verification request to your URL (like GET /webhook').
+     * Meta will send a verification request to your URL (like GET '/webhook').
    If you paste the code correctly, it will reply with **"Webhook verified successfully!"** in your terminal.
 
 Important points to note:
     * Your ngrok URL changes every time you restart ngrok (if you use free plan).
        → So, each time you restart, update the new URL in Meta developer console.
+       
     * Keep your ngrok terminal window open as long as you are testing.
+    
     * While getting a domainwe can have our permanent url / we can also use ngrok paid permanent url for reserved domain.
 
 **Step 7:**
 Fetch status data:
     * Our code automatically logs 'status', 'recipient_id', and 'timestamp' from webhook events.
+    
     * Example extracted fields:
-       * 'status': delivered, sent, failed, etc.
-       * 'recipient_id': receiver's WhatsApp ID
-       * 'timestamp': time of update
+        * 'status': delivered, sent, failed, etc.
+        *'recipient_id': receiver's WhatsApp ID
+        * 'timestamp': time of update
     
 Testing with Postman:
 
