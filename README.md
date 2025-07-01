@@ -110,7 +110,6 @@ Step-by-step:
      node index.js
 when we run the above command in our terminal,it show something like this,
 "http://localhost:3000"
-
 3. Start ngrok
     * Open another terminal and run this too:
        ngrok http 3000
