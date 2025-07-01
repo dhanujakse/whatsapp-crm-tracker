@@ -138,6 +138,7 @@ when we run the above command in our terminal,it show something like this,
    If you paste the code correctly, it will reply with **"Webhook verified successfully!"** in your terminal.
 
 Important points to note:
+
     * Your ngrok URL changes every time you restart ngrok (if you use free plan).
        → So, each time you restart, update the new URL in Meta developer console.
        
