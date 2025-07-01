@@ -102,44 +102,44 @@ Get webhook URL using ngrok,
 Step-by-step:
 
 1️. Install ngrok
-  * If not already installed:
+   * If not already installed:
       npm install -g ngrok
-  * Or download from [https://ngrok.com/download](https://ngrok.com/download).
+   * Or download from [https://ngrok.com/download](https://ngrok.com/download).
 2. Start your Express server locally
-  * For example:
+   * For example:
      node index.js
 when we run the above command in our terminal,it show something like this,
 "http://localhost:3000"
 
 3. Start ngrok
-   * Open another terminal and run this too:
+    * Open another terminal and run this too:
        ngrok http 3000
        Here, `3000` is the port your Express server runs on.
 
 4. Copy your ngrok URL
-   * After running the above command, ngrok will show an output like this:
-       Forwarding    https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app -> http://localhost:3000
-       So,Your public ngrok URL is:
-       https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app
+    * After running the above command, ngrok will show an output like this:
+        Forwarding    https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app -> http://localhost:3000
+        So,public ngrok URL is in the above example:
+        https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app
    
 5. Add webhook path
-   * In your app, your webhook endpoint is for example `/webhook`.
-   * So, your full webhook URL is:
+     * In your app, your webhook endpoint is for example `/webhook`.
+     * So, your full webhook URL is:
         https://473d-2406-7400-ca-d5e8-f504-87b1-174f-203f.ngrok-free.app/webhook - Paste this url in place of callback url
 6. Update in Meta developer console
-    * Go to Meta Developers → WhatsApp → Configuration → Webhooks**.
-    * Paste the full ngrok URL with '/webhook' as your webhook URL.
-    * Add your verify token (the one you put in '.env').
+     * Go to Meta Developers → WhatsApp → Configuration → Webhooks**.
+     * Paste the full ngrok URL with '/webhook' as your webhook URL.
+     * Add your verify token (the one you put in '.env').
 
 7. Save and verify
-   * Meta will send a verification request to your URL (like `GET /webhook`).
+     * Meta will send a verification request to your URL (like `GET /webhook`).
    If you paste the code correctly, it will reply with **"Webhook verified successfully!"** in your terminal.
 
 Important points to note:
-   * Your ngrok URL changes every time you restart ngrok (if you use free plan).
+    * Your ngrok URL changes every time you restart ngrok (if you use free plan).
        → So, each time you restart, update the new URL in Meta developer console.
-   * Keep your ngrok terminal window open as long as you are testing.
-   * While getting a domainwe can have our permanent url / we can also use ngrok paid permanent url for reserved domain.
+    * Keep your ngrok terminal window open as long as you are testing.
+    * While getting a domainwe can have our permanent url / we can also use ngrok paid permanent url for reserved domain.
 
 **Step 7:**
 Fetch status data:
